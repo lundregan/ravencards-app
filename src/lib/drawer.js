@@ -1,5 +1,3 @@
-import { getDrawerStore } from "@skeletonlabs/skeleton";
-
 let drawerStore = null;
 
 const drawSettingsMap = {

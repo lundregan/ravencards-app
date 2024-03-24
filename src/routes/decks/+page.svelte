@@ -1,7 +1,4 @@
 <script>
-	import { db } from "$lib/db";
-    import { getDrawerStore } from "@skeletonlabs/skeleton";
-	import { liveQuery } from "dexie";
     import FaCog from 'svelte-icons/fa/FaCog.svelte';
     import FaPlay from 'svelte-icons/fa/FaPlay.svelte';
     import { openDraw } from '$lib/drawer';
