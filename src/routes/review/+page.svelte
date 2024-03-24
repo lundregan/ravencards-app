@@ -125,8 +125,8 @@
             <h2 class="h4">No more cards to practice</h2>
         
             <div class="mt-4 flex flex-col gap-4">
-                <a href="/decks" class="btn btn variant-filled-primary">Go to dashboard</a>
-                <a href="/decks" class="btn btn variant-filled-secondary">Go to decks</a>
+                <a href="/decks" class="btn variant-filled-primary">Go to dashboard</a>
+                <a href="/decks" class="btn variant-filled-secondary">Go to decks</a>
             </div>
         </div>
     {:else}
