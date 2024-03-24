@@ -25,3 +25,25 @@ db.version(2).stores({
     card.leitnerRank = 0;
   });
 });
+
+export enum CardProgress {
+  NotStarted,
+  Learning,
+  Mastered
+}
+
+export const getCardsByProgress = async (progress: CardProgress) => {
+  try{
+    switch (progress) {
+      case CardProgress.NotStarted:
+        return await db.cards.where('leitnerRank').equals(0).count();
+      case CardProgress.Learning:
+        return db.cards.where('leitnerRank').between(1, 4).count();
+      case CardProgress.Mastered:
+        return db.cards.where('leitnerRank').equals(5).count(); 
+    }
+  } catch (error) {
+    console.error('Error getting cards by progress', error);
+  }
+}
+
