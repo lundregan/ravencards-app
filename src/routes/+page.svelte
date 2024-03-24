@@ -1,5 +1,4 @@
 <script lang="ts">
-	import FaPlay from 'svelte-icons/fa/FaPlay.svelte'
 	import { ConicGradient } from '@skeletonlabs/skeleton';
 	import MdReplay from 'svelte-icons/md/MdReplay.svelte'
 
@@ -10,17 +9,6 @@
 	];
 
 	export let data;
-
-	let summaryStats = [
-		{
-			name: 'Cards',
-			stat: data.cardCount
-		},
-		{
-			name: 'Decks',
-			stat: data.deckCount
-		}
-	]
 </script>
 
 <div class="container mx-auto flex flex-col gap-16 h-full">
