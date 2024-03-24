@@ -8,7 +8,8 @@
 
     $: card = {
         front: 'Example Question',
-        back: 'Example answer'
+        back: 'Example answer',
+        id: 0
     };
 
     $: cards = data.cards || [];
