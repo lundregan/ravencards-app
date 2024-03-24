@@ -9,7 +9,9 @@
         return await db.decks.toArray();
     });
 
-    let newCard = {};
+    let newCard = {
+        'leitnerRank': 0,
+    };
 
     const createCard = async () => {
         console.log('creating new card')

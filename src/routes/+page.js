@@ -1,23 +1,32 @@
-import { db } from '$lib/db';
-
-let deckCount = 0;
-let cardCount = 0;
+import { db, CardProgress, getCardsByProgress } from '$lib/db';
 
 const getDecksCount = async () => {
-    return db.decks.count();
+    try{
+        return db.decks.count();
+    }catch (e){
+        console.log(e);
+    }
 }
 
 const getCardsCount = async () => {
-    return db.cards.count();
+    try{
+        return db.cards.count();
+    }catch (e){
+        console.log(e);
+    }
 }
 
 export const load = async ({ params, url }) => {    
-    deckCount = await getDecksCount();
-    cardCount = await getCardsCount();
-    
+    let deckCount = await getDecksCount();
+    let cardCount = await getCardsCount();
 
     return {
         deckCount: deckCount,
-        cardCount: cardCount
+        cardCount: cardCount,
+        cardProgressCounts: {
+            notStarted: await getCardsByProgress(CardProgress.NotStarted),
+            learning: await getCardsByProgress(CardProgress.Learning),
+            mastered: await getCardsByProgress(CardProgress.Mastered)
+        }
     };
 }
