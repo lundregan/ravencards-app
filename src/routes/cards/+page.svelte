@@ -1,10 +1,12 @@
 <script>
     import { getDrawerStore } from "@skeletonlabs/skeleton";
     import { openDraw } from '$lib/drawer';
+    import { liveQuery } from 'dexie';
+    import { db } from '$lib/db';
     
     import FaCog from 'svelte-icons/fa/FaCog.svelte';
-    
-    export let data;
+
+    let cards = liveQuery(() => db.cards.toArray());
 </script>
 
 <div>
@@ -12,7 +14,7 @@
         <h1 class="h1">Cards</h1>
     </div>
 
-    {#if data.cards.length > 0}
+    {#if ($cards|| []).length > 0}
         <table class="table w-full mt-8">
             <thead>
                 <tr>
@@ -22,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                {#each (data.cards || []) as card (card.id)}
+                {#each ($cards || []) as card (card.id)}
                     <tr>
                         <td>{card.front}</td>
                         <td>{card.deckName}</td>

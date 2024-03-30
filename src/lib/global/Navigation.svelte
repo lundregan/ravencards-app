@@ -58,7 +58,7 @@
 	<div class="flex flex-col gap-8">	
 		<div>
 			<button class="btn flex justify-center w-full" use:popup={popupClickProfile}>
-				<Avatar src={exampleProfile} width="w-12" rounded="rounded-full" />
+				<Avatar initials="Me" width="w-12" rounded="rounded-full" />
 			</button>
 			
 			<div class="card p-2 variant-outline-primary" data-popup="popupClickProfile">

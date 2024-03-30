@@ -1,9 +1,13 @@
 <script>
+    import { openDraw } from '$lib/drawer';
+    import { liveQuery } from 'dexie';
+    import { db } from '$lib/db';
+    
     import FaCog from 'svelte-icons/fa/FaCog.svelte';
     import FaPlay from 'svelte-icons/fa/FaPlay.svelte';
-    import { openDraw } from '$lib/drawer';
+    
 
-    export let data;
+    let decks = liveQuery(() => db.decks.toArray());
 </script>
 
 <div class="table-container">
@@ -11,7 +15,7 @@
         <h1 class="h1">Decks</h1>
     </div>
 
-    {#if data.decks.length > 0}
+    {#if ($decks || []).length > 0}
         <table class="table w-full mt-8">
             <thead>
                 <tr>
@@ -21,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                {#each (data.decks || []) as deck (deck.id)}
+                {#each ($decks || []) as deck (deck.id)}
                     <tr>
                         <td>{deck.title}</td>
                         <td>{deck.description}</td>

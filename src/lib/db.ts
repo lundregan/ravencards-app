@@ -10,20 +10,10 @@ declare module 'dexie' {
 
 export const db = new Dexie('rcDatabase');
 
-db.version(1).stores({
+db.version(3).stores({
   cards: '++id, deckId, leitnerRank',
   settings: '++id, name',
   decks: '++id, name'
-});
-
-db.version(2).stores({
-  cards: '++id, deckId, leitnerRank',
-  settings: '++id, name',
-  decks: '++id, name'
-}).upgrade(tx => {
-  return tx.cards.toCollection().modify(card => {
-    card.leitnerRank = 0;
-  });
 });
 
 export enum CardProgress {
@@ -46,4 +36,3 @@ export const getCardsByProgress = async (progress: CardProgress) => {
     console.error('Error getting cards by progress', error);
   }
 }
-
