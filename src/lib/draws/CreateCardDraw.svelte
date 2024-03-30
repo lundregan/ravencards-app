@@ -50,7 +50,7 @@
 
         <div class="form-control mt-4">
             <label class="label" for="back">
-                <span class="label-text">Back*</span>
+                <span class="label-text">Deck</span>
             </label>
 
             <select class="select mt-2" bind:value={newCard.deckId}>
