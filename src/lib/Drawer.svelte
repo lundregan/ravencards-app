@@ -15,7 +15,7 @@
 		position="right"
 		width="max-w-lg w-full"
 	>
-    <div class="p-4">
+    <div class="p-4 h-full">
         {#if $drawerStore.id === 'createDeck'}
             <CreateDeckDraw />
         {:else if $drawerStore.id === 'createCard'}

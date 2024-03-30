@@ -49,46 +49,48 @@
     });
 </script>
 
-<div>
-    <h1>Editing card</h1>
+<div class="h-full flex flex-col justify-between">
+    <div>
+        <h1>Editing card</h1>
 
 
-    <form class="card card-bordered p-4 transition-all my-4" on:submit={updateCard}>
-        <div class="form-control">
-            <label class="label" for="front">
-                <span class="label-text">Front*</span>
-            </label>
+        <form class="card card-bordered p-4 transition-all my-4" on:submit={updateCard}>
+            <div class="form-control">
+                <label class="label" for="front">
+                    <span class="label-text">Front*</span>
+                </label>
+                
+                <input type="text" id="front" class="input input-bordered" bind:value={editedCard.front} required />
+            </div>
+
+            <div class="form-control mt-4">
+                <label class="label" for="back">
+                    <span class="label-text">Back*</span>
+                </label>
+                
+                <input type="text" id="back" class="input input-bordered" bind:value={editedCard.back} required />
+            </div>
+
+            <div class="form-control mt-4">
+                <label class="label" for="back">
+                    <span class="label-text">Deck</span>
+                </label>
+
+                <select class="select mt-2" bind:value={editedCard.deckId}>
+                    {#each ($decks || []) as deck (deck.id)}
+                        <option value={deck.id}>{deck.title}</option>
+                    {/each}
+                </select>
+            </div>
+
             
-            <input type="text" id="front" class="input input-bordered" bind:value={editedCard.front} required />
-        </div>
 
-        <div class="form-control mt-4">
-            <label class="label" for="back">
-                <span class="label-text">Back*</span>
-            </label>
-            
-            <input type="text" id="back" class="input input-bordered" bind:value={editedCard.back} required />
-        </div>
+            <button type="submit" class="btn variant-filled-primary mt-8">Save</button>   
+        </form>
+    </div>
 
-        <div class="form-control mt-4">
-            <label class="label" for="back">
-                <span class="label-text">Deck</span>
-            </label>
-
-            <select class="select mt-2" bind:value={editedCard.deckId}>
-                {#each ($decks || []) as deck (deck.id)}
-                    <option value={deck.id}>{deck.title}</option>
-                {/each}
-            </select>
-        </div>
-
-        
-
-        <button type="submit" class="btn variant-filled-primary mt-8">Save</button>   
-    </form>
-
-    <div class="card card-bordered p-4 transition-all my-4">
+    <div class="card card-bordered p-4 transition-all">
         <h1>Options</h1>
-        <button type="button" class="btn variant-filled-error mt-8" on:click={deleteCard}>Delete</button>   
+        <button type="button" class="btn btn-sm variant-filled-error mt-4" on:click={deleteCard}>Delete</button>   
     </div>
 </div>

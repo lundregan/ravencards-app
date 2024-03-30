@@ -45,29 +45,31 @@
     });
 </script>
 
-<div>
-    <h1>Editing Deck</h1>
+<div class="h-full flex flex-col justify-between">
+    <div>
+        <h1>Editing Deck</h1>
 
-    <form class="card card-bordered p-4 transition-all my-4" on:submit={updateDeck}>
-        <div class="form-control">
-            <label class="label" for="title">
-                <span class="label-text">Title</span>
-            </label>
-            <input type="text" id="title" class="input input-bordered" bind:value={editedDeck.title} placeholder="Deck Name..." required />
-        </div>
+        <form class="card card-bordered p-4 transition-all my-4" on:submit={updateDeck}>
+            <div class="form-control">
+                <label class="label" for="title">
+                    <span class="label-text">Title</span>
+                </label>
+                <input type="text" id="title" class="input input-bordered" bind:value={editedDeck.title} placeholder="Deck Name..." required />
+            </div>
 
-        <div class="form-control mt-4">
-            <label class="label" for="back">
-                <span class="label-text">Description</span>
-            </label>
-            <textarea class="textarea" id="description" rows="4" bind:value={editedDeck.description} placeholder="Description..." required />
-        </div>
+            <div class="form-control mt-4">
+                <label class="label" for="back">
+                    <span class="label-text">Description</span>
+                </label>
+                <textarea class="textarea" id="description" rows="4" bind:value={editedDeck.description} placeholder="Description..." required />
+            </div>
 
-        <button type="submit" class="btn variant-filled-primary mt-8">Save</button>   
-    </form>
+            <button type="submit" class="btn variant-filled-primary mt-8">Save</button>   
+        </form>
+    </div>
 
-    <div class="card card-bordered p-4 transition-all my-4">
+    <div class="card card-bordered p-4 transition-all">
         <h1>Options</h1>
-        <button type="button" class="btn variant-filled-error mt-8" on:click={deleteDeck}>Delete</button>   
+        <button type="button" class="btn variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>   
     </div>
 </div>
