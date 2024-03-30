@@ -13,11 +13,13 @@
     };
 
     $: cards = data.cards || [];
+    $: backHasBeenShown = false;
 
     let cardsPracticed = 0;
 
     const flipCard = () => {
         cardFlipped = !cardFlipped;
+        backHasBeenShown = true;
     }
 
     const chooseRandomCard = async () => {
@@ -34,6 +36,7 @@
         card = data.cards[newRandomNumber];
 
         cardFlipped = false;
+        backHasBeenShown = false;
     }
 
     const againButtonClicked = async () => {
@@ -165,7 +168,7 @@
     {/if}
 
     <div class="max-w-7xl mx-16 mbs-8 p-4 rounded-full flex justify-center gap-8">
-        <button class="btn btn-outline variant-filled-error text-center font-bold text-xl" on:click={againButtonClicked}>Again</button>
+        <button class="btn btn-outline variant-filled-error text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={againButtonClicked}>Again</button>
         <button class="btn btn-outline variant-filled-warning text-center font-bold text-xl" on:click={hardButtonClicked}>Hard</button>
         <button class="btn btn-outline variant-filled-secondary text-center font-bold text-xl" on:click={mediumButtonClicked}>Medium</button>
         <button class="btn btn-outline variant-filled-success text-center font-bold text-xl" on:click={easyButtonClicked}>Easy</button>
