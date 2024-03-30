@@ -96,7 +96,29 @@
         updateCard(card);
 
         removeCurrentCardFromUpcomingCards();
-    } 
+    }
+
+    const onKeyDown = (e) => {
+        switch (e.key) {
+            case '1':
+                againButtonClicked();
+                break;
+            case '2':
+                hardButtonClicked();
+                break;
+            case '3':
+                mediumButtonClicked();
+                break;
+            case '4':
+                easyButtonClicked();1
+                break;
+            case ' ':
+                flipCard();
+                break;
+        }
+    }
+
+    $: test37 = 
 
     onMount(() => {        
         chooseRandomCard();
@@ -149,3 +171,5 @@
         <button class="btn btn-outline variant-filled-success text-center font-bold text-xl" on:click={easyButtonClicked}>Easy</button>
     </div>
 </div>
+
+<svelte:window on:keydown={onKeyDown} />
