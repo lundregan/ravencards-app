@@ -4,6 +4,7 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
+	import { Toast } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/global/Navigation.svelte';
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -40,4 +41,5 @@
 	</AppShell>
 
 	<Drawer />
+	<Toast />
 </div>

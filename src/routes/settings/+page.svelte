@@ -1,6 +1,14 @@
 <script lang="js">
     import { db } from "$lib/db";
     import { onMount } from "svelte";
+    import { getToastStore } from '@skeletonlabs/skeleton';
+
+    const toastStore = getToastStore();
+
+    const toastSettingsSaveSuccess = {
+        message: 'Settings have been successfully saved!',
+        background: 'variant-filled-success',
+    };
 
     $: settings = {
         'username': 'username'
@@ -33,7 +41,8 @@
             console.error(e);
         }
 
-        alert('Settings saved');
+        
+        toastStore.trigger(toastSettingsSaveSuccess);
     };
 
     onMount(async () => {
