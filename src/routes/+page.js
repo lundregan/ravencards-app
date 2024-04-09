@@ -1,5 +1,10 @@
 import { db, CardProgress, getCardsByProgress } from '$lib/db';
 
+const getUsername = async () => {
+    let username = await db.settings.get('username');
+    return username.value;
+}
+
 const getDecksCount = async () => {
     try{
         return db.decks.count();
@@ -27,6 +32,7 @@ export const load = async ({ params, url }) => {
             notStarted: await getCardsByProgress(CardProgress.NotStarted),
             learning: await getCardsByProgress(CardProgress.Learning),
             mastered: await getCardsByProgress(CardProgress.Mastered)
-        }
+        },
+        username: await getUsername()
     };
 }

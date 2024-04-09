@@ -18,7 +18,7 @@
 
 <div class="container mx-auto flex flex-col gap-16 h-full">
 	<div>
-		<span class="text-gray-300">Hey Ethan, Welcome back!</span>
+		<span class="text-gray-300">Hey {data.username || 'User'}, Welcome back!</span>
 		<h1 class="text-3xl">Dashboard</h1>
 	</div>
 
