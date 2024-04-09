@@ -18,8 +18,7 @@
         <table class="table w-full mt-8">
             <thead>
                 <tr>
-                    <th>Front</th>
-                    <th>Deck</th>
+                    <th>Question</th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,7 +26,6 @@
                 {#each ($cards || []) as card (card.id)}
                     <tr>
                         <td>{card.front}</td>
-                        <td>{card.deckName}</td>
                         <td class="flex justify-end">
                             <button on:click={() => openDraw('editCard', {cardId: card.id})} type="button" class="btn btn-icon w-6">
                                 <FaCog />
