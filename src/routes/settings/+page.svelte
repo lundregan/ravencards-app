@@ -27,15 +27,12 @@
         }catch (e) {
             console.error(e);
         }
-
-        console.log('Settings loaded');
     };
 
     const saveSettings = async () => {        
         try {
             Object.keys(settings).forEach(async setting => {
                 let res = await db.settings.put({ id: setting, value: settings[setting]});
-                console.log(res);
             });
         }catch (e) {
             console.error(e);

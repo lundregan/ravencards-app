@@ -9,28 +9,20 @@
     let editedDeck = {};
 
     const updateDeck = async () => {
-        console.log('creating new card')
-
         try {
             let res = await db.cards.put(editedDeck);
             
             drawerStore.close();
-            
-            console.log(res);
         }catch (e) {
             console.error(e);
         }
     };
 
     const deleteDeck = async () => {
-        console.log('deleting card')
-
         try {
             let res = await db.decks.delete(editedDeck.id);
             
             drawerStore.close();
-            
-            console.log(res);
         }catch (e) {
             console.error(e);
         }

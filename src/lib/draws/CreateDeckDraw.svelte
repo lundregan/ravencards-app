@@ -4,11 +4,8 @@
     let newDeck = {};
 
     const createDeck = async () => {
-        console.log('creating new deck')
-
         try {
             let res = await db.decks.put(newDeck);
-            console.log(res);
         }catch (e) {
             console.error(e);
         }

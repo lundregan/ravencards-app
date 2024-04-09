@@ -26,9 +26,7 @@ const getAllCards = async () => {
 
 const getPracticeCards = async (deckId) => {
     if(!deckId){
-        console.log("getting all cards")
         await getAllCards();
-        console.log(cards)
 
         return;
     }

@@ -13,28 +13,20 @@
     let editedCard = {};
 
     const updateCard = async () => {
-        console.log('creating new card')
-
         try {
             let res = await db.cards.put(editedCard);
             
             drawerStore.close();
-            
-            console.log(res);
         }catch (e) {
             console.error(e);
         }
     };
 
     const deleteCard = async () => {
-        console.log('deleting card')
-
         try {
             let res = await db.cards.delete(editedCard.id);
             
             drawerStore.close();
-            
-            console.log(res);
         }catch (e) {
             console.error(e);
         }

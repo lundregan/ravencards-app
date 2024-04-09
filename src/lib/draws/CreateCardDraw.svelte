@@ -14,14 +14,10 @@
     };
 
     const createCard = async () => {
-        console.log('creating new card')
-
         try {
             let res = await db.cards.put(newCard);
             
             drawerStore.close();
-            
-            console.log(res);
         }catch (e) {
             console.error(e);
         }
