@@ -105,7 +105,5 @@
 		</div>
 		
 	</div>
-
-	<span class="absolute text-zinc-600 font-medium left-2 bottom-0">0.0.1</span>
 </nav>
 

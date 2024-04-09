@@ -49,6 +49,8 @@
         <button class="btn btn-sm variant-filled-success" disabled={!canSave} on:click={saveSettings}>Save</button>
     </div>
 
+    <span class="text-zinc-400 font-medium">Version: 0.0.1</span>
+
     <div class="flex flex-col gap-16  mt-8">
         <div>
             <label class="form-control w-full max-w-xs">
