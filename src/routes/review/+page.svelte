@@ -1,13 +1,16 @@
 <script>
     import { onMount } from "svelte";
     import { db } from "$lib/db";
-    import { getModalStore } from '@skeletonlabs/skeleton';
+    import { getModalStore, localStorageStore } from '@skeletonlabs/skeleton';
 
     import MdHelpOutline from 'svelte-icons/md/MdHelpOutline.svelte'
+
+    import { get } from 'svelte/store';
 
     const modalStore = getModalStore();
 
     export let data;
+    
 
     $: cardFlipped = false;
 
@@ -135,8 +138,25 @@
         modalStore.trigger(helpModal);
     }
 
+    const storeIntro = localStorageStore('storeRC', {
+        showHelpModal: true
+    });
+
+    $: showHelpModal = get(storeIntro).showHelpModal;
+
     onMount(() => {        
         chooseRandomCard();
+
+        if(showHelpModal){
+            openHelpModal();
+            
+            storeIntro.update(() => {
+                return {
+                    ...storeIntro,
+                    showHelpModal: false
+                }
+            });
+        }
     });
 </script>
 
