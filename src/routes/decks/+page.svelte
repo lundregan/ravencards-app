@@ -27,8 +27,8 @@
             <tbody>
                 {#each ($decks || []) as deck (deck.id)}
                     <tr>
-                        <td>{deck.title}</td>
-                        <td>{deck.description}</td>
+                        <td class="text-ellipsis overflow-hidden max-w-[10vw]">{deck.title}</td>
+                        <td class="text-ellipsis overflow-hidden max-w-[10vw]">{deck.description}</td>
                         <td class="flex gap-4 justify-end">
                             <a href="/practice?deckId={deck.id}" type="button" class="btn btn-icon w-6">
                                 <FaPlay />

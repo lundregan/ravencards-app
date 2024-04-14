@@ -25,7 +25,7 @@
             <tbody>
                 {#each ($cards || []) as card (card.id)}
                     <tr>
-                        <td>{card.front}</td>
+                        <td class="text-ellipsis overflow-hidden max-w-[10vw]">{card.front}</td>
                         <td class="flex justify-end">
                             <button on:click={() => openDraw('editCard', {cardId: card.id})} type="button" class="btn btn-icon w-6">
                                 <FaCog />
