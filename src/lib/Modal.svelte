@@ -1,10 +1,10 @@
 <script>
     import { Modal } from '@skeletonlabs/skeleton';
 
-    import ModalComponentOne from '$lib/modals/HelpModal.svelte';
+    import modalComponentHelp from '$lib/modals/HelpModal.svelte';
 
     const modalRegistry = {
-        modalComponentOne: { ref: ModalComponentOne },
+        modalComponentHelp: { ref: modalComponentHelp },
     };
 </script>
 

@@ -132,7 +132,7 @@
     const openHelpModal = () => {
         const helpModal = {
             type: 'component',
-            component: 'modalComponentOne',
+            component: 'modalComponentHelp',
         }
 
         modalStore.trigger(helpModal);
@@ -149,7 +149,7 @@
 
         if(showHelpModal){
             openHelpModal();
-            
+
             storeIntro.update(() => {
                 return {
                     ...storeIntro,
