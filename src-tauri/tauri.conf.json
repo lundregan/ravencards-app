@@ -57,9 +57,9 @@
 			{
 				"fullscreen": false,
 				"height": 600,
+				"width": 1000,
 				"resizable": true,
-				"title": "Raven Cards",
-				"width": 800
+				"title": "Raven Cards"
 			}
 		]
 	}
