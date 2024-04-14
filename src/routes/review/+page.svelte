@@ -176,11 +176,11 @@
         </div>
     {:else}
         <button class="card w-96 shadow-xl transform relative pt-4 transition-all duration-600 bg-gray-800 {cardFlipped ? 'rotate-3d-[1,1,1,360deg]' : ''}" on:click={flipCard}>            
-            <section class="card-body items-center text-center min-h-40 flex px-8 justify-center">
+            <section class="card-body items-center text-center min-h-40 flex p-8 justify-center">
                 {#if !cardFlipped}
-                    <h2 class="card-title">{card.front}</h2>
+                    <h2 class="card-title break-words w-full">{card.front}</h2>
                 {:else}
-                    <h2 class="card-title">{card.back}</h2>
+                    <h2 class="card-title break-words w-full">{card.back}</h2>
                 {/if}
             </section>
         </button>
