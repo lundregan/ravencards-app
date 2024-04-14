@@ -5,6 +5,7 @@
     
     import FaCog from 'svelte-icons/fa/FaCog.svelte';
     import FaPlay from 'svelte-icons/fa/FaPlay.svelte';
+    import FaPlus from 'svelte-icons/fa/FaPlus.svelte'
     
 
     let decks = liveQuery(() => db.decks.toArray());
@@ -13,6 +14,10 @@
 <div class="table-container">
     <div class="flex justify-between mb-12">
         <h1 class="h1">Decks</h1>
+        <button class="btn btn-sm variant-ghost-primary w-32" on:click={() => {openDraw('createDeck')}}>
+            <div class="w-3"><FaPlus /></div>
+            <span>Create Deck</span>
+        </button>
     </div>
 
     {#if ($decks || []).length > 0}
@@ -44,8 +49,7 @@
     {:else}
         <div>
             <div class="card p-4 mx-auto">
-                <p class="">No decks found,</p>
-                <p>Try creating one from the side menu!</p>
+                <p class="">No decks found, <button class="anchor" on:click={() => {openDraw('createDeck')}}>create a deck</p>
             </div>
         </div>
     {/if}

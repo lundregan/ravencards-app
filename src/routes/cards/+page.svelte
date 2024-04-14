@@ -5,6 +5,7 @@
     import { db } from '$lib/db';
     
     import FaCog from 'svelte-icons/fa/FaCog.svelte';
+    import FaPlus from 'svelte-icons/fa/FaPlus.svelte'
 
     let cards = liveQuery(() => db.cards.toArray());
 </script>
@@ -12,6 +13,10 @@
 <div>
     <div class="flex justify-between mb-12">
         <h1 class="h1">Cards</h1>
+        <button class="btn btn-sm variant-ghost-primary w-32" on:click={() => {openDraw('createCard')}}>
+            <div class="w-3"><FaPlus /></div>
+            <span>Create Card</span>
+        </button>
     </div>
 
     {#if ($cards|| []).length > 0}
@@ -38,8 +43,7 @@
     {:else}
         <div>
             <div class="card p-4 mx-auto">
-                <p class="">No decks found,</p>
-                <p>Try creating one from the side menu!</p>
+                <p class="">No decks found, <button class="anchor" on:click={() => {openDraw('createCard')}}>create a card</p>
             </div>
         </div>
     {/if}
