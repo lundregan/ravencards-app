@@ -1,10 +1,10 @@
 [package]
 name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+version = "0.0.1"
+description = "SRS "
+authors = ["Ethan Lundregan"]
 license = ""
-repository = ""
+repository = "https://github.com/lundregan/ravencards-app"
 default-run = "app"
 edition = "2021"
 rust-version = "1.60"

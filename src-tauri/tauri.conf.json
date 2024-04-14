@@ -7,8 +7,8 @@
 		"distDir": "../build"
 	},
 	"package": {
-		"productName": "skeleton-starter-tauri",
-		"version": "0.1.0"
+		"productName": "Ravencards",
+		"version": "0.0.1"
 	},
 	"tauri": {
 		"allowlist": {
@@ -16,7 +16,7 @@
 		},
 		"bundle": {
 			"active": true,
-			"category": "DeveloperTool",
+			"category": "Education",
 			"copyright": "",
 			"deb": {
 				"depends": []
