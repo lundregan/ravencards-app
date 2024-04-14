@@ -1,6 +1,11 @@
 <script>
     import { onMount } from "svelte";
     import { db } from "$lib/db";
+    import { getModalStore } from '@skeletonlabs/skeleton';
+
+    import MdHelpOutline from 'svelte-icons/md/MdHelpOutline.svelte'
+
+    const modalStore = getModalStore();
 
     export let data;
 
@@ -120,8 +125,15 @@
                 break;
         }
     }
+    
+    const openHelpModal = () => {
+        const helpModal = {
+            type: 'component',
+            component: 'modalComponentOne',
+        }
 
-    $: test37 = 
+        modalStore.trigger(helpModal);
+    }
 
     onMount(() => {        
         chooseRandomCard();
@@ -129,7 +141,14 @@
 </script>
 
 <div class="h-full flex flex-col justify-between items-center">
+    
     <div class="w-full">
+        <div>
+            <button class="btn btn-icon variant-invisible text-center font-bold text-xl" on:click={openHelpModal}>
+                <div class="w-6"><MdHelpOutline /></div>
+            </button>
+        </div>
+        
         <progress class="progress w-full" value={cardsPracticed} max={data.cardsToPracticeCount}></progress>
         
         <div class="w-full flex justify-between">

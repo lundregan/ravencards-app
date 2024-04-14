@@ -1,16 +1,13 @@
 <script lang="ts">
 	import '../app.postcss';
-	import Footer from '$lib/global/Footer.svelte'
-	import { AppShell } from '@skeletonlabs/skeleton';
-	import { getDrawerStore } from '@skeletonlabs/skeleton';
-	import { initializeStores } from '@skeletonlabs/skeleton';
-	import { Toast } from '@skeletonlabs/skeleton';
-	import Navigation from '$lib/global/Navigation.svelte';
+	import { AppShell, getDrawerStore, initializeStores, Toast, storePopup } from '@skeletonlabs/skeleton';
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
 	import { setDrawerStore } from '$lib/drawer';
 
+	import Footer from '$lib/global/Footer.svelte'
+	import Navigation from '$lib/global/Navigation.svelte';
 	import Drawer from '$lib/Drawer.svelte';
+	import Modal from '$lib/Modal.svelte';
 
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
@@ -42,4 +39,5 @@
 
 	<Drawer />
 	<Toast />
+	<Modal />
 </div>
