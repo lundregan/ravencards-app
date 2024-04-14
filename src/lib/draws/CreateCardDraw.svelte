@@ -33,7 +33,14 @@
                 <span class="label-text">Front*</span>
             </label>
             
-            <input type="text" id="front" class="input input-bordered" bind:value={newCard.front} required />
+            <input
+                type="text"
+                id="front"
+                class="input input-bordered"
+                bind:value={newCard.front}
+                maxlength="512"
+                required
+            />
         </div>
 
         <div class="form-control mt-4">
@@ -41,7 +48,14 @@
                 <span class="label-text">Back*</span>
             </label>
             
-            <input type="text" id="back" class="input input-bordered" bind:value={newCard.back} required />
+            <input
+                type="text"
+                id="back"
+                class="input input-bordered"
+                bind:value={newCard.back}
+                maxlength="512"
+                required
+            />
         </div>
 
         <div class="form-control mt-4">

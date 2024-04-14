@@ -63,7 +63,7 @@
                 <div class="label">
                     <span class="label-text">What should we call you?</span>
                 </div>
-                <input type="text" placeholder="User" class="input input-bordered w-full max-w-xs" bind:value={settings.username} />
+                <input type="text" placeholder="User" class="input input-bordered w-full max-w-xs" bind:value={settings.username} maxlength="32" />
             </label>
         </div>
     </div>
