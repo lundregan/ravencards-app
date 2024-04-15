@@ -45,6 +45,14 @@ const getPracticeCards = async (deckId) => {
     });
 }
 
+const getShowNextReviewDateToast = async () => {
+    let showNextReviewDateToast = await db.settings.get("showNextReviewDateToast");
+
+    if(!showNextReviewDateToast) return true;
+
+    return showNextReviewDateToast.value;
+}
+
 export const load = async ({ params, url }) => {    
     let deckId = url.searchParams.get('deckId');
 
@@ -56,6 +64,7 @@ export const load = async ({ params, url }) => {
         deck: deck,
         cards: cards,
         cardsToPracticeCount: cards.length,
-        deckId: deckId
+        deckId: deckId,
+        showNextReviewDateToast: await getShowNextReviewDateToast()
 	};
 }

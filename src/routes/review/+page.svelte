@@ -1,16 +1,18 @@
 <script>
     import { onMount } from "svelte";
     import { db } from "$lib/db";
-    import { getModalStore, localStorageStore } from '@skeletonlabs/skeleton';
+    import { getModalStore, localStorageStore, getToastStore  } from '@skeletonlabs/skeleton';
 
     import MdHelpOutline from 'svelte-icons/md/MdHelpOutline.svelte'
 
     import { get } from 'svelte/store';
+	import { show } from "@tauri-apps/api/app";
 
     const modalStore = getModalStore();
 
+    const toastStore = getToastStore();
+
     export let data;
-    
 
     $: cardFlipped = false;
 
@@ -45,12 +47,6 @@
 
         cardFlipped = false;
         backHasBeenShown = false;
-    }
-
-    const againButtonClicked = async () => {
-        resetCardLeitnerRank(card);
-        
-        chooseRandomCard();
     }
 
     const removeCurrentCardFromUpcomingCards = async () => {
@@ -89,6 +85,26 @@
         };
 
         db.cards.update(card.id, updatedCard);
+
+        if(data.showNextReviewDateToast){
+            showNextReviewDateToast(nextReviewDate);
+        }
+    }
+
+    const showNextReviewDateToast = (nextReviewDate) => {
+        const toast = {
+            message: `Next review date: ${nextReviewDate.toDateString()}`,
+            background: 'variant-filled-success',
+            position: 'br'
+        }
+
+        toastStore.trigger(toast);
+    }
+
+    const againButtonClicked = async () => {
+        resetCardLeitnerRank(card);
+        
+        chooseRandomCard();
     }
 
     const hardButtonClicked = () => {
