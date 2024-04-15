@@ -1,5 +1,4 @@
 <script>
-	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { popup } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
@@ -9,10 +8,6 @@
 	import MdHome from 'svelte-icons/md/MdHome.svelte'
 	import MdReplay from 'svelte-icons/md/MdReplay.svelte'
 	import MdPermMedia from 'svelte-icons/md/MdPermMedia.svelte'
-
-	import MdSettings from 'svelte-icons/md/MdSettings.svelte'
-
-	import exampleProfile from '$lib/assets/images/profile/guy-3.png';
 
 	import { openDraw } from '$lib/drawer';
 

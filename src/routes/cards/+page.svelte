@@ -1,5 +1,4 @@
 <script>
-    import { getDrawerStore } from "@skeletonlabs/skeleton";
     import { openDraw } from '$lib/drawer';
     import { liveQuery } from 'dexie';
     import { db } from '$lib/db';

@@ -1,7 +1,6 @@
 <script>
     import { db } from "$lib/db";
     import { getDrawerStore } from "@skeletonlabs/skeleton";
-    import { liveQuery } from "dexie";
     import { onMount } from "svelte";
 
     const drawerStore = getDrawerStore();
