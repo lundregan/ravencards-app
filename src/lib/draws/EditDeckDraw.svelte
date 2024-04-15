@@ -62,6 +62,6 @@
 
     <div class="card card-bordered p-4 transition-all">
         <h1>Options</h1>
-        <button type="button" class="btn variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>   
+        <button type="button" class="btn btn-sm variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>   
     </div>
 </div>
