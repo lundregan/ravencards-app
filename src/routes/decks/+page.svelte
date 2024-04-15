@@ -35,7 +35,7 @@
                         <td class="text-ellipsis overflow-hidden max-w-[10vw]">{deck.title}</td>
                         <td class="text-ellipsis overflow-hidden max-w-[10vw]">{deck.description}</td>
                         <td class="flex gap-4 justify-end">
-                            <a href="/practice?deckId={deck.id}" type="button" class="btn btn-icon w-6">
+                            <a href="/review?deckId={deck.id}" type="button" class="btn btn-icon w-6">
                                 <FaPlay />
                             </a>
                             <button type="button" on:click={() => openDraw('editDeck', {deckId: deck.id})} class="btn btn-icon w-6">
