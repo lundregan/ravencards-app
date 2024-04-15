@@ -27,7 +27,7 @@
             <label class="label" for="back">
                 <span class="label-text">Description</span>
             </label>
-            <textarea class="textarea" id="description" rows="4" bind:value={newDeck.description} placeholder="Description..." maxlength="256" required />
+            <textarea class="textarea" id="description" rows="4" bind:value={newDeck.description} placeholder="Description..." maxlength="256" />
         </div>
 
         <button type="submit" class="btn variant-filled-primary mt-8">Create</button>   
