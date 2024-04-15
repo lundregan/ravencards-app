@@ -185,20 +185,22 @@
             </button>
         </div>
         
-        <progress class="progress w-full" value={cardsPracticed} max={data.cardsToPracticeCount}></progress>
-        
-        <div class="w-full flex justify-between">
-            <div>
-                {#if data.deck}
-                    <p>{data.deck.title}</p>
-                {:else}
-                    <p>All Cards</p>
-                {/if}
+        {#if data.cards.length > 0}
+            <progress class="progress w-full" value={cardsPracticed} max={data.cardsToPracticeCount}></progress>
+            
+            <div class="w-full flex justify-between">
+                <div>
+                    {#if data.deck}
+                        <p>{data.deck.title}</p>
+                    {:else}
+                        <p>All Cards</p>
+                    {/if}
+                </div>
+                <div>
+                    <p>{cardsPracticed} / {data.cardsToPracticeCount}</p>
+                </div>
             </div>
-            <div>
-                <p>{cardsPracticed} / {data.cardsToPracticeCount}</p>
-            </div>
-        </div>
+        {/if}
     </div>
 
     {#if data.cards.length === 0}
@@ -222,12 +224,16 @@
         </button>
     {/if}
 
-    <div class="max-w-7xl mx-16 mbs-8 p-4 rounded-full flex justify-center gap-8">
-        <button class="btn btn-outline variant-filled-error text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={againButtonClicked}>Again</button>
-        <button class="btn btn-outline variant-filled-warning text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={hardButtonClicked}>Hard</button>
-        <button class="btn btn-outline variant-filled-secondary text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={mediumButtonClicked}>Medium</button>
-        <button class="btn btn-outline variant-filled-success text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={easyButtonClicked}>Easy</button>
-    </div>
+    {#if data.cards.length > 0}
+        <div class="max-w-7xl mx-16 mbs-8 p-4 rounded-full flex justify-center gap-8">
+            <button class="btn btn-outline variant-filled-error text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={againButtonClicked}>Again</button>
+            <button class="btn btn-outline variant-filled-warning text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={hardButtonClicked}>Hard</button>
+            <button class="btn btn-outline variant-filled-secondary text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={mediumButtonClicked}>Medium</button>
+            <button class="btn btn-outline variant-filled-success text-center font-bold text-xl" disabled={!backHasBeenShown} on:click={easyButtonClicked}>Easy</button>
+        </div>
+    {:else}
+        <div></div>
+    {/if}
 </div>
 
 <svelte:window on:keydown={onKeyDown} />
