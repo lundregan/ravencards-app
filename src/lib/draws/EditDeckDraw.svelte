@@ -27,6 +27,18 @@
         }
     };
 
+    const resetDeckProgress = async () => {
+        let cards = await db.cards.where('deckId').equals(editedDeck.id).toArray();
+        
+        cards.forEach(async card => {
+            card.leitnerRank = 0;
+            card.nextReviewDate = null;
+            card.lastPracticed = null;
+
+            await db.cards.put(card);
+        });
+    }
+
     onMount(async () => {
         let deckId = $drawerStore.meta.deckId;
 
@@ -61,6 +73,9 @@
 
     <div class="card card-bordered p-4 transition-all">
         <h1>Options</h1>
-        <button type="button" class="btn btn-sm variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>   
+        <div class="flex gap-4">
+            <button type="button" class="btn btn-sm variant-filled-warning mt-4" on:click={resetDeckProgress}>Reset All cards Progress</button>
+            <button type="button" class="btn btn-sm variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>
+        </div>
     </div>
 </div>
