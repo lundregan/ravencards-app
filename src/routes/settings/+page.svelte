@@ -12,7 +12,7 @@
 
     $: settings = {
         'username': 'username',
-        'showNextReviewDateToast': true,
+        'showNextReviewDateToast': false,
     };
 
     $: canSave = false;
@@ -21,16 +21,23 @@
         try {
             Object.keys(settings).forEach(async setting => {
                 let res = await db.settings.get(setting);
+
                 if(res) {
-                    settings[setting] = `${res.value}`;
+                    let value = res.value;
+
+                    settings[setting] = `${value}`;
                 }
             });
+
+            console.log(`updated settings: ${JSON.stringify(settings)}`)
         }catch (e) {
             console.error(e);
         }
+
+        settings.showNextReviewDateToast = await db.settings.get('showNextReviewDateToast').value == 'true' ? true : false || false;
     };
 
-    const saveSettings = async () => {        
+    const saveSettings = async () => {      
         try {
             Object.keys(settings).forEach(async setting => {
                 let res = await db.settings.put({ id: setting, value: settings[setting]});
@@ -38,7 +45,6 @@
         }catch (e) {
             console.error(e);
         }
-
         
         toastStore.trigger(toastSettingsSaveSuccess);
     };
@@ -47,6 +53,8 @@
         await loadSettings();
 
         canSave = true;
+
+        console.log('Settings loaded');
     });
 </script>
 
@@ -72,7 +80,14 @@
 
         <div>
             <h2 class="h2 mb-4">Review</h2>
-            <SlideToggle name="slide" bind:checked={settings.showNextReviewDateToast} active="bg-primary-500">Show next review date popup</SlideToggle>
+            <div class="space-y-2">
+                <label>Show next review date popup</label>
+
+                <select class="select max-w-xs" bind:value={settings.showNextReviewDateToast}>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
         </div>
     </div>
 </section>
