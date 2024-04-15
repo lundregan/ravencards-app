@@ -74,7 +74,7 @@
     <div class="card card-bordered p-4 transition-all">
         <h1>Options</h1>
         <div class="flex gap-4">
-            <button type="button" class="btn btn-sm variant-filled-warning mt-4" on:click={resetDeckProgress}>Reset All cards Progress</button>
+            <button type="button" class="btn btn-sm variant-filled-warning mt-4" on:click={resetDeckProgress}>Reset progress of cards</button>
             <button type="button" class="btn btn-sm variant-filled-error mt-4" on:click={deleteDeck}>Delete</button>
         </div>
     </div>
