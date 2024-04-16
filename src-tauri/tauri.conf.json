@@ -51,7 +51,13 @@
 			"csp": null
 		},
 		"updater": {
-			"active": false
+			"active": true,
+			"endpoints": ["https://gist.github.com/lundregan/69cad3e2bd7ef4fd83c7408017e230bc"],
+			"dialog": true,
+			"pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDM4RUIyNDEwM0NCRjFEOUIKUldTYkhiODhFQ1RyT0FDek5rZ1RnR3Fxai9UTTRJb3ZpL01LVFpuR21OSnNweEcvM0piYXI2VjEK",
+			"windows": {
+				"installMode": "passive"
+			}
 		},
 		"windows": [
 			{
