@@ -14,6 +14,7 @@
     };
 
     let stayOpen = false;
+    let keepValues = false;
 
     const createCard = async () => {
         try {
@@ -25,8 +26,8 @@
                 newCard = {
                     ...newCard,
                     'leitnerRank': 0,
-                    front: null,
-                    back: null,
+                    front: keepValues ? newCard.front : null,
+                    back: keepValues ? newCard.back : null,
                 };
             }
         }catch (e) {
@@ -38,7 +39,13 @@
 <div>
     <h1 class="h2">Create Card</h1>
 
-    <SlideToggle class="mt-4" name="slider-label" size="sm" active="variant-ghost-primary" bind:checked={stayOpen}>Stay open</SlideToggle>
+    <div class="flex gap-4">
+        <SlideToggle class="mt-4" name="slider-label" size="sm" active="variant-ghost-primary" bind:checked={stayOpen}>Stay open</SlideToggle>
+        
+        {#if stayOpen}
+            <SlideToggle class="mt-4" name="slider-label" size="sm" active="variant-ghost-primary" bind:checked={keepValues}>Keep values</SlideToggle>
+        {/if}
+    </div>
 
     <form class="card card-bordered p-4 transition-all my-4" on:submit={createCard}>
         <div class="form-control">
