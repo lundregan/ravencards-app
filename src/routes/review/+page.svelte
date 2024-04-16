@@ -71,8 +71,27 @@
         db.cards.update(card.id, updatedCard);
     }
 
-    const updateCard = async (card) => {
-        let numOfDaysToAdd = card.leitnerRank * card.leitnerRank - card.leitnerRank;
+    const leitnerMaps = {
+        rankToDays: {
+            1: 1,
+            2: 3,
+            3: 7,
+            4: 14,
+            5: 30
+        },
+        easeOfRecallToMultiplier: {
+            1: 1,
+            2: 1.5,
+            3: 2.0,
+        }
+    }
+
+    const updateCard = async (card, easeOfRecall) => {
+        let baseDays = leitnerMaps.rankToDays[card.leitnerRank] ? leitnerMaps.rankToDays[card.leitnerRank] : 1;
+        let daysMultiplier = leitnerMaps.easeOfRecallToMultiplier[easeOfRecall] ? leitnerMaps.easeOfRecallToMultiplier[easeOfRecall] : 1;
+        let numOfDaysToAdd = baseDays * daysMultiplier;
+
+        console.log(`Adding ${numOfDaysToAdd} days to next review date`)
         
         let nextReviewDate = new Date();
         nextReviewDate.setDate(nextReviewDate.getDate() + numOfDaysToAdd);
@@ -93,9 +112,11 @@
 
     const showNextReviewDateToast = (nextReviewDate) => {
         const toast = {
-            message: `Next review date: ${nextReviewDate.toDateString()}`,
-            background: 'variant-filled-success',
-            position: 'br'
+            message: `Next review: ${
+                nextReviewDate.toDateString()
+            }`,
+            background: 'variant-filled-secondary',
+            timeout: 1500
         }
 
         toastStore.trigger(toast);
@@ -108,19 +129,19 @@
     }
 
     const hardButtonClicked = () => {
-        updateCard(card);
+        updateCard(card, 1);
 
         removeCurrentCardFromUpcomingCards();
     }
 
     const mediumButtonClicked = () => {
-        updateCard(card);
+        updateCard(card, 2);
 
         removeCurrentCardFromUpcomingCards();
     }
 
     const easyButtonClicked = () => {
-        updateCard(card);
+        updateCard(card, 3);
 
         removeCurrentCardFromUpcomingCards();
     }
