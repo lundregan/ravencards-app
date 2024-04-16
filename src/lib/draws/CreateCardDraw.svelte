@@ -1,8 +1,9 @@
 <script>
     import { db } from "$lib/db";
-    import { getDrawerStore, SlideToggle } from "@skeletonlabs/skeleton";
+    import { getDrawerStore, SlideToggle, getToastStore } from "@skeletonlabs/skeleton";
     import { liveQuery } from "dexie";
 
+    const toastStore = getToastStore();
     const drawerStore = getDrawerStore();
 
     let decks = liveQuery(async () => {
@@ -20,6 +21,14 @@
         try {
             let res = await db.cards.put(newCard);
             
+            const toast = {
+                message: `Card Added: ${newCard.front}`,
+                background: 'variant-filled-secondary',
+                timeout: 3000
+            }
+
+            toastStore.trigger(toast);
+
             if(!stayOpen){
                 drawerStore.close();
             }else{
