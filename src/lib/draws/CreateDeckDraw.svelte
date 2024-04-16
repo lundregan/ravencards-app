@@ -13,7 +13,7 @@
 </script>
 
 <div>
-    <h1>Create Deck</h1>
+    <h1 class="h2">Create Deck</h1>
 
     <form class="card card-bordered p-4 transition-all my-4" on:submit={createDeck}>
         <div class="form-control">

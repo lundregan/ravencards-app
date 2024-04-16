@@ -50,7 +50,7 @@
 
 <div class="h-full flex flex-col justify-between">
     <div>
-        <h1>Editing Deck</h1>
+        <h1 class="h2">Editing Deck</h1>
 
         <form class="card card-bordered p-4 transition-all my-4" on:submit={updateDeck}>
             <div class="form-control">
