@@ -1,6 +1,6 @@
 <script>
     import { db } from "$lib/db";
-    import { getDrawerStore } from "@skeletonlabs/skeleton";
+    import { getDrawerStore, SlideToggle } from "@skeletonlabs/skeleton";
     import { liveQuery } from "dexie";
 
     const drawerStore = getDrawerStore();
@@ -13,11 +13,22 @@
         'leitnerRank': 0,
     };
 
+    let stayOpen = false;
+
     const createCard = async () => {
         try {
             let res = await db.cards.put(newCard);
             
-            drawerStore.close();
+            if(!stayOpen){
+                drawerStore.close();
+            }else{
+                newCard = {
+                    ...newCard,
+                    'leitnerRank': 0,
+                    front: null,
+                    back: null,
+                };
+            }
         }catch (e) {
             console.error(e);
         }
@@ -26,6 +37,8 @@
 
 <div>
     <h1 class="h2">Create Card</h1>
+
+    <SlideToggle class="mt-4" name="slider-label" size="sm" active="variant-ghost-primary" bind:checked={stayOpen}>Stay open</SlideToggle>
 
     <form class="card card-bordered p-4 transition-all my-4" on:submit={createCard}>
         <div class="form-control">
