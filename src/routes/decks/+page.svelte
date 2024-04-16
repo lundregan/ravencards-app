@@ -38,7 +38,7 @@
                             <a href="/review?deckId={deck.id}" type="button" class="btn btn-icon w-6">
                                 <FaPlay />
                             </a>
-                            <button type="button" on:click={() => openDraw('editDeck', {deckId: deck.id})} class="btn btn-icon w-6">
+                            <button type="button" on:click={() => openDraw('editDeck', {deckId: deck.id})} class="btn btn-icon w-5">
                                 <FaCog />
                             </button>
                         </td>
