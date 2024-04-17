@@ -105,7 +105,7 @@
 
         db.cards.update(card.id, updatedCard);
 
-        if(data.showNextReviewDateToast){
+        if(data.showNextReviewDateToast == 'true'){
             showNextReviewDateToast(nextReviewDate);
         }
     }
