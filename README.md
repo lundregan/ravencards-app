@@ -1,29 +1,19 @@
-# Skeleton - Tauri Starter Project
+# RavenCards
 
-Welcome to the official Skeleton - Tauri template that allows you to start creating your desktop apps now.
+RavenCards is a modern, lightweight flashcard application designed to enhance learning through the Spaced Repetition System (SRS). Built with Svelte and Tauri, this app offers a seamless desktop experience with efficient data storage using Dexie in the IndexDB. Whether you're a student, a professional, or a lifelong learner, RavenCards helps you retain information effectively.
 
-## What's Skeleton?
+## Features
 
-Skeleton is a powerful UI toolkit built using Svelte and Tailwind CSS. Create adaptive, accessible design systems for your web apps.
+- **Create Decks and Cards**: Organize your study material in decks, create flashcards with a question front and an answer back.
+- **Spaced Repetition System**: Utilize the Leitner SRS to optimize memory retention. Cards are reviewed with options to mark them as "Again", "Easy", "Medium", or "Hard", adjusting the review schedule based on your responses.
+- **Local Storage**: All data is stored locally in your browser's IndexDB through Dexie, ensuring quick access and data privacy.
+- **Cross-Platform**: Available on multiple platforms thanks to the Tauri framework, which allows for lightweight applications that integrate seamlessly with your desktop environment.
 
-## What's Tauri?
+## Getting Started
 
-Tauri is a toolkit that helps developers make applications for the major desktop platforms - using virtually any frontend framework in existence. The core is built with Rust, and the CLI leverages Node.js making Tauri a genuinely polyglot approach to creating and maintaining great apps.
+To get started with RavenCards, you can download the latest version from the releases page. After launching RavenCards, you can begin by creating a new deck and adding cards. Review sessions are initiated from the main dashboard, where you can select a deck and start a review cycle.
 
-## Prerequisites
+### Download Latest Release
 
-Before you begin, make sure to install all required Rust language and system dependencies per the guide below.
-
-[Tauri Prerequisites Guide](https://tauri.app/v1/guides/getting-started/prerequisites/)
-
-## How to use
-
-This project is already setup to start working on it. You only need to clone it.
-
-```shell
-git clone https://github.com/skeletonlabs/skeleton-starter-tauri.git
-```
-
-Take into account that this is an opinionated template, which uses the Skeleton theme, Typescript and npm. If you prefer to start from scratch, you can follow our [step-by-step guide](https://www.skeleton.dev/docs/tauri)
-
-Have fun!
+1. Go to the [latest release](https://github.com/lundregan/ravencards-app/releases/latest) or [all releases](https://github.com/lundregan/ravencards-app/releases).
+2. Download the latest release suitable for your operating system.
